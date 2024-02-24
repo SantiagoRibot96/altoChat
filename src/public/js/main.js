@@ -14,7 +14,16 @@ Swal.fire({
     allowOutsideClick: false
 }).then(result => {
     user = result.value;
-    console.log(user);
+    socket.on("messagesLogs", (data) => {
+        let log = document.getElementById("messagesLogs");
+        let mensajes = "";
+    
+        data.forEach(item => {
+            mensajes = mensajes + `${item.user} dice: ${item.message} <br>`;
+        });
+    
+        log.innerHTML = mensajes;
+    });
 });
 
 chatBox.addEventListener("keyup", (event) => {
