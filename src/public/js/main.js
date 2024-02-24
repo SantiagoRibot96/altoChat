@@ -24,6 +24,7 @@ Swal.fire({
     
         log.innerHTML = mensajes;
     });
+    console.log(user);
 });
 
 chatBox.addEventListener("keyup", (event) => {

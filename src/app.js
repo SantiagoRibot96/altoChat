@@ -35,6 +35,8 @@ let messages = [];
 
 io.on("connection", (socket) => {
     console.log(`Se conecto un nuevo cliente`);
+    
+    io.emit("messagesLogs", messages);
 
     socket.on("message", (data) => {
         messages.push(data);
